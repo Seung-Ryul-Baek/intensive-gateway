@@ -25,3 +25,51 @@ spring:
           uri: http://localhost:8085
           predicates:
             - Path=/students/**
+        - id: view
+            uri: http://localhost:8086
+            predicates:
+              - Path=/view/**
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: course
+          uri: http://course:8080
+          predicates:
+            - Path=/courses/**
+        - id: payment
+          uri: http://payment:8080
+          predicates:
+            - Path=/payments/**
+        - id: lecture
+          uri: http://lecture:8080
+          predicates:
+            - Path=/lectures/**
+        - id: certification
+          uri: http://certification:8080
+          predicates:
+            - Path=/certifications/**
+        - id: student
+          uri: http://student:8080
+          predicates:
+            - Path=/students/**
+        - id: view
+            uri: http://view:8080
+            predicates:
+              - Path=/view/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
