@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "gateway"
+    _PROJECT_NAME: "edu-gateway"
 
 phases:
   install:
