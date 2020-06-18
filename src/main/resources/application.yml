@@ -28,7 +28,7 @@ spring:
         - id: view
             uri: http://localhost:8086
             predicates:
-              - Path=/view/**
+              - Path=/studentLectureHistories/**
 ---
 
 spring:
@@ -59,7 +59,7 @@ spring:
         - id: view
             uri: http://view:8080
             predicates:
-              - Path=/view/**
+              - Path=/studentLectureHistories/**
       globalcors:
         corsConfigurations:
           '[/**]':
